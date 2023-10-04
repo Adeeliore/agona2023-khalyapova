@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'YourFont'; /* Имя шрифта для использования в CSS */
+    src: url('../agona23/Inter-Medium.ttf') format('ttf'); /* Путь к .woff2 файлу */
+    font-weight: normal;
+    font-style: normal;
+}
