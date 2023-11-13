@@ -1,47 +1,81 @@
+
+const storedTasks = localStorage.getItem('tasks');
+const tasks = storedTasks ? JSON.parse(storedTasks) : [];
+
+function saveTasksToLocalStorage() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 function addTask() {
     const newTaskInput = document.querySelector(".input-container__input");
     const taskText = newTaskInput.value.trim();
+
     if (taskText !== "") {
         const taskList = document.querySelector(".list-container__list");
-        const taskItem = document.createElement("li");
-        taskItem.classList.add("list-container__item");
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.classList.add("list-container__checkbox");
-        checkbox.addEventListener("change", function() {
-            toggleTask(checkbox);
-        });
-        const taskSpan = document.createElement("span");
-        taskSpan.textContent = taskText;
-        taskSpan.classList.add("list-container__task");
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "delete";
-        deleteButton.classList.add("list-container__delete-button");
-        deleteButton.addEventListener("click", function() {
-            deleteTask(deleteButton);
-        });
+        const taskObject = {
+            text: taskText,
+            completed: false
+        };
 
-        taskItem.appendChild(checkbox);
-        taskItem.appendChild(taskSpan);
-        taskItem.appendChild(deleteButton);
-        taskList.appendChild(taskItem);
-
+        tasks.push(taskObject);
+        saveTasksToLocalStorage();
+        renderTask(taskObject, taskList);
         newTaskInput.value = "";
     }
 }
 
+function renderTask(task, taskList) {
+    const taskItem = document.createElement("li");
+    taskItem.classList.add("list-container__item");
 
-function toggleTask(checkbox) {
-    const taskSpan = checkbox.nextElementSibling;
-    if (checkbox.checked) {
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("list-container__checkbox");
+    checkbox.checked = task.completed;
+    checkbox.addEventListener("change", function() {
+        toggleTask(task);
+    });
+
+    const taskSpan = document.createElement("span");
+    taskSpan.textContent = task.text;
+    taskSpan.classList.add("list-container__task");
+    if (task.completed) {
         taskSpan.classList.add("completed");
-    } else {
-        taskSpan.classList.remove("completed");
     }
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "delete";
+    deleteButton.classList.add("list-container__delete-button");
+    deleteButton.addEventListener("click", function() {
+        deleteTask(task);
+    });
+
+    taskItem.appendChild(checkbox);
+    taskItem.appendChild(taskSpan);
+    taskItem.appendChild(deleteButton);
+    taskList.appendChild(taskItem);
+}
+
+function toggleTask(task) {
+    task.completed = !task.completed;
+    saveTasksToLocalStorage();
+    renderTaskList();
+}
+
+function deleteTask(task) {
+    const taskIndex = tasks.indexOf(task);
+    tasks.splice(taskIndex, 1);
+    saveTasksToLocalStorage();
+    renderTaskList();
+}
+
+function renderTaskList() {
+    const taskList = document.querySelector(".list-container__list");
+    taskList.innerHTML = "";
+    tasks.forEach(task => {
+        renderTask(task, taskList);
+    });
 }
 
 
-function deleteTask(button) {
-    const taskItem = button.parentElement;
-    taskItem.remove();
-}
+renderTaskList();
