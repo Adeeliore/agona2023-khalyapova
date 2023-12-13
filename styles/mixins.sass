@@ -1,0 +1,18 @@
+@mixin device($type)
+  @if $type == mobile
+    @media (max-width: 767px)
+      @content
+  @else if $type == tablet
+    @media (min-width: 768px) and (max-width: 1023px)
+      @content
+  @else if $type == desktop
+    @media (min-width: 1024px)
+      @content
+
+@mixin text-styles($size, $weight, $line-height, $letter-spacing: 0, $color: $primary-color, $margin: 0)
+  font-size: $size
+  font-weight: $weight
+  line-height: $line-height
+  letter-spacing: $letter-spacing
+  color: $color
+  margin: $margin

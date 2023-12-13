@@ -1,0 +1,210 @@
+.main
+  display: flex
+  flex-direction: column
+  color: white
+  align-items: flex-start
+  padding: 52px
+
+  .logos
+    width: 1336px
+    height: 192px
+    padding-bottom: 52px
+    padding-top: 52px
+    gap: 48px
+    display: flex
+    box-sizing: border-box
+    flex-direction: row
+    justify-content: center
+    border-top: 1px solid rgba(157, 159, 161, 1)
+    border-bottom: 1px solid rgba(157, 159, 161, 1)
+
+    .logos_button
+      display: flex
+      height: 80px
+      padding: 0
+      align-items: center
+      border: none
+      background: none
+      outline: nonе
+
+  .banner__container
+    display: flex
+    align-items: flex-start
+    padding-top: 52px
+    padding-bottom: 52px
+    grid-template-columns: repeat(3, 1fr)
+    gap: 32px
+    align-self: stretch
+
+    .banner__container__card
+      display: flex
+      flex-direction: column
+      align-items: center
+      width: 424px
+      padding-bottom: 0
+
+      .img
+        height: 524px
+        flex-shrink: 0
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        align-self: stretch
+
+      .text
+        text-align: center
+        padding-top: 16px
+
+        .text__1
+          @include text-styles(16px, 400, 26px, 0, $secondary-color)
+          width: 392px
+
+        .text__2
+          @include text-styles(20px, 600, 28px, -1px, $primary-color)
+          width: 392px
+
+  .container
+    padding-top: 52px
+    padding-bottom: 104px
+
+    .container__content
+      position: relative
+      height: 600px
+      width: 1336px
+      background: $background-color
+
+      .container__content__image
+        display: flex
+        max-width: 100%
+        width: 684px
+        height: 600px
+        justify-content: center
+        align-items: center
+
+      .container__content__text
+        position: absolute
+        width: 456px
+        height: 312px
+        left: 798px //850//
+        right: 134px
+        top: 144px
+        bottom: 144px
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        align-self: stretch
+
+        .paragraph-1
+          @include text-styles(16px, 600, 26px, 0, $primary-color)
+          margin-bottom: 8px
+
+        .paragraph-2
+          @include text-styles(54px, 600, 62px, -1px, $primary-color)
+          margin-bottom: 8px
+
+        .paragraph-3
+          @include text-styles(18px, 400, 30px, 0, $primary-color)
+          margin-bottom: 24px
+
+        .paragraph-4
+          @include text-styles(34px, 600, 40px, -0.4px, $primary-color)
+          margin-bottom: 32px
+
+        .button_shop
+          color: $accent-color
+          background: $primary-color
+          padding: 10px 24px
+          justify-content: center
+          align-items: center
+          gap: 4px
+          font-family: Inter, system-ui
+          font-size: 18px
+          font-style: normal
+          font-weight: 500
+          line-height: 32px
+          letter-spacing: -0.4px
+          border: none
+
+  .container__join
+    display: grid
+    width: 1336px
+    height: 334px
+    justify-content: center
+    align-items: center
+    border: 1px solid darkgrey
+    box-sizing: border-box
+    border-radius: 12px
+    padding-top: 52px
+    padding-bottom: 52px
+
+    .container__join__text
+      display: flex
+      flex-direction: column
+      text-align: center
+      gap: 8px
+      top: 87px
+      bottom: 155px
+      left: 398px
+      right: 398px
+
+      .text-1
+        @include text-styles(42px, 600, 54px, -0.4px, $primary-color)
+
+      .text-2
+        @include text-styles(18px, 300, 30px, 0, $primary-color)
+
+    .container__join__input
+      display: flex
+      width: 488px
+      height: 52px
+      align-items: center
+      align-self: stretch
+      top: 203px
+      bottom: 79px
+      left: 424px
+      right: 424px
+      gap: 8px
+      border-bottom: 1px solid #D0D5DD
+
+      .input
+        color: $secondary-color
+        border: none
+        width: 395px
+        font-family: Inter, system-ui
+        font-size: 16px
+        font-style: normal
+        font-weight: 300
+        line-height: 26px
+
+      .sign_button
+        border: none
+        background: none
+        font-family: Inter, system-ui
+        font-size: 16px
+        font-style: normal
+        font-weight: 600
+        line-height: 28px
+        letter-spacing: -0.4px
+
+  .container__section
+    padding-top: 104px
+
+    .container__section__banner
+      width: 1336px
+      height: 494px
+      background: url('kartinki/back.svg'), lightgray 50% / cover no-repeat
+      text-align: center
+      padding-top: 158px
+
+
+      .text-1
+        @include text-styles(42px, 600, 54px, -0.4px, $accent-color)
+        margin-bottom: 13px
+      .text-2
+        @include text-styles(18px, 300, 30px, 0, $accent-color)
+        margin-bottom: 24px
+
+      .custom-link
+        @include text-styles(18px, 600, 32px, -0.4px, $accent-color)
+
+

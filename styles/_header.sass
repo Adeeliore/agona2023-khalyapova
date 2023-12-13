@@ -1,0 +1,110 @@
+
+*
+  box-sizing: border-box
+  font-family: $font-family
+
+body
+  color: $primary-color
+
+.header
+  color: $accent-color
+  justify-content: space-between
+  display: flex
+  flex-direction: column
+
+  .container
+    display: flex
+    padding: 8px 52px
+    align-items: center
+    height: 50px
+
+
+    .container__logo
+      width: 119px
+      height: 36px
+
+    .container__navigation
+      flex: 1
+      display: flex
+      justify-content: center
+      align-items: center
+
+
+      .navigation__list
+        list-style: none
+        padding: 0
+        display: flex
+        margin-left: 40px
+
+        .navigation__list__item
+          @include text-styles(14px, 600, 24px)
+          margin-left: 40px
+          text-decoration: none
+
+          a.navigation__link
+            color: $primary-color
+            text-decoration: none
+
+    .container__user-icons
+      .user-icons__list
+        display: inline-flex
+        justify-content: flex-end
+        align-items: center
+        gap: 20px
+        padding: 4px
+
+        .user-icons__button
+          width: 28px
+          height: 28px
+          padding: 0
+          border: none
+          background: none
+          outline: none
+
+
+.container__content
+  position: relative
+  height: 700px
+  padding: 0
+  @include device(mobile)
+    flex-wrap: wrap
+
+  .container__content__image
+    display: flex
+    max-width: 100%
+    width: 736px
+    height: 700px
+    justify-content: space-between
+    align-items: center
+    flex-shrink: 0
+
+  .container__content__text
+    position: absolute
+    width: 488px
+    height: 286px
+    left: 818px
+    right: 134px
+    top: 207px
+    bottom: 207px
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    align-self: stretch
+
+    .text__paragraph-1, .text__paragraph-2, .text__paragraph-3, .text__custom-link
+      color: $primary-color
+
+    .text__paragraph-1
+      @include text-styles(16px, 600, 26px)
+
+
+    .text__paragraph-2
+      @include text-styles(54px, 600, 62px, -1px)
+      margin-bottom: 11px
+
+    .text__paragraph-3
+      @include text-styles(18px, 400, 30px)
+      margin-bottom: 28px
+
+    .text__custom-link
+      @include text-styles(18px, 600, 32px, -0.4px)
