@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
   font-family: "Inter", system-ui;
@@ -163,7 +162,6 @@ body {
   align-items: center;
   border: none;
   background: none;
-  outline: nonе;
 }
 .main .banner__container {
   display: flex;
